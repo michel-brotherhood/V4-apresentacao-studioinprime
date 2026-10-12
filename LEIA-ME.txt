@@ -1,3 +1,9 @@
+ATUALIZAÇÃO v9 (12/10) — proteção
+   - Código minificado (sem comentários nem estrutura legível) e bloqueio de botão direito, F12, Ctrl/Cmd+Shift+I/J/C,
+     Ctrl/Cmd+U e Ctrl/Cmd+S. É dissuasão: quem desativar o JavaScript ainda consegue ver o código.
+   - Para proteção real, use acesso com senha (Vercel: Settings → Deployment Protection).
+   - Publique SOMENTE o conteúdo da pasta "site". Este LEIA-ME e o _headers (Cloudflare) ficam fora para não serem públicos.
+
 ATUALIZAÇÃO v8 (12/10) — revisão/auditoria
    - Acessibilidade (axe-core): 0 violações no desktop e no celular (contraste AA, hierarquia de títulos, carrossel navegável por teclado).
    - Menu completo só acima de 1280px (entre 1181 e 1280 os itens não cabiam).
