@@ -1,0 +1,53 @@
+V4 × STUDIO IN PRIME — PLANEJAMENTO DE CONTEÚDO (PÁGINA + FILME)
+================================================================
+
+1) ANTES DE PUBLICAR (index.html, bloco CONFIG no início do último <script>)
+   - cta.url        → link de aprovação/agenda (tem prioridade), ou
+   - cta.whatsapp   → DDI+DDD+número, só dígitos (ex.: 5511999999999)
+   - cta.message    → mensagem pré-preenchida no WhatsApp
+   - analytics      → preencha só o que usar. Recomendado: Plausible ou Umami (sem cookies, sem banner LGPD).
+   - Prévia no WhatsApp: troque content="og.jpg" por content="https://SEU-DOMINIO/og.jpg" (2 ocorrências no <head>).
+
+2) PUBLICAR NA CLOUDFLARE PAGES
+   Opção A — painel (sem terminal):
+     dash.cloudflare.com → Workers & Pages → Create → Pages → "Upload assets"
+     → nome do projeto (ex.: studio-inprime) → arraste ESTA PASTA inteira → Deploy.
+   Opção B — terminal:
+     npx wrangler pages deploy . --project-name=studio-inprime
+   Domínio próprio: Pages → projeto → Custom domains (ex.: inprime.suaagencia.com.br).
+   Limite da Cloudflare Pages: 25 MiB por arquivo — o maior MP4 aqui tem menos de 15 MB.
+
+3) PROTEGER O LINK (recomendado para proposta de cliente)
+   Zero Trust → Access → Applications → Self-hosted → domínio do Pages
+   → política "Emails" com o e-mail do cliente (login por código, grátis até 50 usuários).
+   A página já vem com noindex (meta + cabeçalho X-Robots-Tag) e robots.txt bloqueando buscadores.
+
+4) O QUE JÁ ESTÁ CONFIGURADO
+   _headers   → segurança (CSP, nosniff, HSTS, frame-ancestors) e cache:
+                HTML sempre revalida; assets e mídia com cache de 30 dias.
+                Ao trocar um vídeo/imagem mantendo o mesmo nome, faça "Purge cache" no painel.
+   robots.txt → bloqueia indexação.
+
+5) RASTREIO — eventos (todos com client, src, device, t)
+   proposal_open · section_view · calendar_view · calendar_filter · month_click · menu_open · hero_play
+   scroll_depth · engaged_time · video_play · video_progress · live_open · video_download · video_fallback · cta_click
+   Dica: envie o link com ?src=whatsapp (ou ?src=email). Teste com ?debug e veja os eventos no console.
+
+6) ARQUIVOS
+   index.html             página
+   filme-ao-vivo.html     filme em código (botão "Ver ao vivo" e fallback se o MP4 falhar). ?v=1 = corte 9:16
+   media/                 filmes 16:9, 9:16 e 9:16 leve (WhatsApp) + b-rolls do Studio (media/broll)
+   media/preview-*.mp4    prévias mudas e leves (~1,3 MB) que rodam em loop no player; o filme completo
+                          com som só carrega quando a pessoa clica em "Assistir com som".
+   assets/                fontes, logos V4 (versão branca, conforme brandbook para fundo escuro), posters
+   og.jpg                 imagem de compartilhamento 1200×630
+   index-standalone.html  versão em arquivo único (só para enviar por e-mail; não precisa subir)
+
+   Cenas do Studio geradas por IA (Higgsfield · Kling 3): são referências visuais de direção,
+   não imagens reais do Studio In Prime — substitua pelos takes da captação quando existirem
+   (mesmos nomes em media/broll e assets/img/broll).
+
+7) HOSPEDADO NA VERCEL?
+   A Vercel ignora o arquivo _headers (ele é da Cloudflare). Por isso o pacote traz vercel.json
+   com os mesmos cabeçalhos de segurança, noindex e cache. Para atualizar o site: substitua TODOS os
+   arquivos do projeto por esta pasta (inclusive media/ e vercel.json) e faça um novo deploy.
