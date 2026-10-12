@@ -15,14 +15,16 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="V4 × Studio In Prime · Planejamento de Conteúdo">
 <meta name="twitter:description" content="A exclusividade que o mercado mainstream promete, mas só o In Prime entrega.">
-<meta property="og:image" content="og.jpg">
+<meta property="og:url" content="https://v4-apt-studioin.vercel.app/">
+<meta property="og:image" content="https://v4-apt-studioin.vercel.app/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="IN PRIME — Planejamento de Conteúdo · V4 Company × Studio In Prime">
-<meta name="twitter:image" content="og.jpg">
+<meta name="twitter:image" content="https://v4-apt-studioin.vercel.app/og.jpg">
 <link rel="preload" href="assets/fonts/inter-tight-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23E50914%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Impact,Arial Black,sans-serif%27 font-size=%2732%27 fill=%27%23fff%27 text-anchor=%27middle%27%3EIP%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-v4.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon-v4.png">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 
@@ -190,7 +192,7 @@ h1,h2,h3{text-wrap:balance}
 .top{padding-top:env(safe-area-inset-top,0px)}
 .mbtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;cursor:pointer}
 .mbtn svg{width:20px;height:20px}
-@media(max-width:1180px){.top nav{display:none}.mbtn{display:inline-flex}}
+@media(max-width:1280px){.top nav{display:none}.mbtn{display:inline-flex}}
 .top .btn{white-space:nowrap}
 @media(max-width:860px){.mbtn{display:inline-flex}.top .tcta{display:none}.top .lk{font-size:19px}.top img{height:20px}}
 #menu{border:0;padding:0;margin:0;width:100vw;max-width:none;height:100svh;max-height:none;background:rgba(10,7,8,.97);color:var(--w)}
@@ -222,21 +224,134 @@ h1,h2,h3{text-wrap:balance}
 .st .bd p.d{margin-top:14px}
 /* players: prévia muda em loop → clique toca com som */
 .player,.media,.floor,.vf{isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black)}
-.player .pbtn{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;padding:0;border:0;border-radius:0;background:radial-gradient(ellipse at center,rgba(10,7,8,.15) 0%,rgba(10,7,8,.5) 100%);color:#fff;cursor:pointer;font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;appearance:none}
-.pbtn .pi{width:clamp(64px,8vw,84px);height:clamp(64px,8vw,84px);border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 12px 44px rgba(229,9,20,.55);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
-.pbtn .pi::before{content:"";width:0;height:0;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
-.pbtn .pl{background:rgba(10,7,8,.72);border:1px solid rgba(255,255,255,.16);padding:8px 12px;border-radius:999px;white-space:nowrap}
-.pbtn .pl b{color:var(--red);font-weight:700;margin-left:6px}
-@media(hover:hover){.pbtn:hover .pi{transform:scale(1.07)}}
-.pbtn:focus-visible{outline:2px solid #fff;outline-offset:-8px}
-.pbtn:focus-visible .pi{transform:scale(1.07)}
-.player .pmute{position:absolute;left:12px;top:12px;z-index:3;pointer-events:none;display:inline-flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;background:rgba(10,7,8,.72);border:1px solid rgba(255,255,255,.14);padding:6px 9px;border-radius:6px}
-.player .pmute i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.4s steps(2) infinite}
-@keyframes blink{50%{opacity:.25}}
-@media(prefers-reduced-motion:reduce){.player .pmute i{animation:none}}
-.player.nopv .pmute{display:none}
-.player.full .pbtn,.player.full .pmute{display:none}
+.player .pbtn{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:flex-start;width:100%;padding:clamp(10px,1.6vw,16px);border:0;border-radius:0;background:linear-gradient(0deg,rgba(10,7,8,.55),transparent 32%);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;appearance:none}
+.pbtn .pl{display:inline-flex;align-items:center;gap:9px;font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(10,7,8,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);padding:10px 14px;border-radius:999px;white-space:nowrap;min-height:44px;transition:background .2s,border-color .2s,transform .2s}
+.pbtn .pl svg{width:18px;height:18px;flex:none}
+.pbtn .pl b{color:var(--red);font-weight:700;margin-left:2px}
+@media(hover:hover){.pbtn:hover .pl{background:var(--red);border-color:var(--red);transform:translateY(-2px)}.pbtn:hover .pl b{color:#fff}}
+.pbtn:focus-visible{outline:none}.pbtn:focus-visible .pl{outline:2px solid #fff;outline-offset:3px}
+.player.full .pbtn{display:none}
 video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+/* ===== 5. tráfego pago ===== */
+.lbl{font:700 12px/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.mk{color:var(--w);background:linear-gradient(transparent 62%,rgba(229,9,20,.45) 62%);padding:0 .08em}
+.tp-obj{display:grid;gap:12px;padding:clamp(24px,3.4vw,40px);border-radius:20px;background:linear-gradient(135deg,rgba(229,9,20,.18),rgba(229,9,20,.02) 62%),var(--ink2);border:1px solid rgba(229,9,20,.35);margin-bottom:14px}
+.tp-obj p{font:300 clamp(20px,2.3vw,30px)/1.32 var(--sans);letter-spacing:-.015em;max-width:44ch}
+.tp-ch{display:grid;gap:14px}
+@media(min-width:900px){.tp-ch{grid-template-columns:1fr 1fr}}
+.tp-card{display:flex;flex-direction:column;gap:18px;padding:clamp(20px,2.6vw,32px);border-radius:20px;background:linear-gradient(160deg,#170f10,#0d0a0a);border:1px solid var(--line);min-width:0}
+.tp-card h3{font:600 clamp(20px,2vw,25px)/1.2 var(--sans);letter-spacing:-.015em}
+.tp-card h3 span{color:var(--mut);font-weight:400}
+.tp-card>p{color:var(--mut);font-size:16px;line-height:1.6}
+.mock{border-radius:16px;background:#f6f5f4;color:#1f1f1f;padding:14px;display:grid;gap:10px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.srch{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e3e1df;border-radius:999px;padding:11px 16px;font:500 15px var(--sans);min-width:0}
+.srch svg{width:17px;height:17px;flex:none;color:#777}
+.srch .q{flex:1;min-width:0;white-space:nowrap;overflow:hidden}
+.srch .q::after{content:"";display:inline-block;width:2px;height:1.05em;background:var(--red);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(2) infinite}
+.gres{background:#fff;border-radius:12px;padding:12px 14px;display:grid;gap:3px;font:400 13.5px/1.45 var(--sans);color:#4d5156}
+.gres .sp{font:700 12px var(--sans);color:#202124}
+.gres .sp i{font-style:normal;font-weight:400;color:#5f6368}
+.gres b{font:500 18px/1.3 var(--sans);color:#1a0dab}
+.chips2{display:flex;flex-wrap:wrap;gap:8px}
+.chips2 span{font:600 12px/1.2 var(--mono);letter-spacing:.04em;padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--w)}
+.chips2 span.r{border-color:rgba(229,9,20,.55);background:rgba(229,9,20,.12)}
+.feed{background:#fff;border-radius:12px;overflow:hidden;font:400 13px/1.4 var(--sans);color:#262626}
+.feed .fh{display:flex;align-items:center;gap:9px;padding:10px 12px}
+.feed .av{width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:800 10px var(--sans);letter-spacing:-.02em;flex:none}
+.feed .fh b{font-weight:700;display:block;line-height:1.2}.feed .fh small{color:#737373;font-size:11.5px}
+.feed .im{aspect-ratio:2/1;background-size:cover;background-position:center 35%}
+.feed .fc{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 12px;background:#efefef;font-weight:600;color:#262626}
+.feed .fc span:last-child{color:var(--red);font-size:18px;line-height:1}
+.stg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.stg div{padding:11px 8px;border-radius:10px;background:#fff;border:1px solid #e3e1df;font:700 10.5px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;text-align:center}
+@media(max-width:560px){.stg{grid-template-columns:1fr}.stg div{display:flex;align-items:center;gap:10px;text-align:left}.stg div small{margin:0}}
+.stg div{color:#1f1f1f}.stg div small{display:block;color:#5f5f5f;font-size:10px;margin-bottom:4px}
+.stg div:last-child{background:var(--red);border-color:var(--red);color:#fff}.stg div:last-child small{color:#fff}
+/* públicos */
+.aud{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.aud li{list-style:none;position:relative;padding:22px 20px 20px;border-radius:18px;background:var(--ink2);border:1px solid var(--line);display:grid;gap:14px;align-content:start;min-height:150px}
+@media(max-width:640px){.aud li{min-height:0;grid-template-columns:auto 1fr;align-items:baseline;padding:18px}}
+.aud li b{font:700 12px var(--mono);color:var(--red);letter-spacing:.1em}
+.aud li span{font:500 17px/1.38 var(--sans);letter-spacing:-.01em}
+.aud li.k{border-color:rgba(229,9,20,.45);background:linear-gradient(160deg,rgba(229,9,20,.14),var(--ink2) 70%)}
+.offer{margin-top:clamp(28px,4vw,44px);display:grid;border-radius:22px;overflow:hidden;border:1px solid rgba(229,9,20,.35);background:var(--ink2)}
+@media(min-width:900px){.offer{grid-template-columns:1.1fr 1fr}}
+.offer .ot{padding:clamp(24px,3.4vw,44px);display:grid;gap:16px;align-content:center}
+.offer .ot p{color:var(--mut);font-size:clamp(16px,1.4vw,18px);line-height:1.6}
+.offer .ov{position:relative;min-height:300px;background:url(assets/img/broll/salao.jpg) center/cover;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:clamp(20px,3vw,34px)}
+.offer .ov::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,8,.05) 20%,rgba(10,7,8,.88))}
+.offer .ov>*{position:relative}
+.offer .ov .lbl{color:#fff;opacity:.8}
+.pill{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-radius:14px;font:600 clamp(15px,1.4vw,17px)/1.25 var(--sans);background:rgba(10,7,8,.72);border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pill.p{background:var(--red);border-color:var(--red);box-shadow:0 14px 40px -12px rgba(229,9,20,.8)}
+.pill i{font-style:normal;font-size:18px}
+/* criativos */
+.jrn{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));counter-reset:j}
+@media(min-width:640px){.jrn{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1100px){.jrn{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.jrn li{list-style:none;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background-size:cover;background-position:center;border:1px solid var(--line);counter-increment:j}
+.jrn li::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,8,.15) 30%,rgba(10,7,8,.9))}
+.jrn li span{position:absolute;left:14px;right:14px;bottom:12px;font:600 clamp(15px,1.4vw,17px)/1.2 var(--sans);text-transform:capitalize}
+.jrn li span::before{content:"0" counter(j);display:block;font:700 11px var(--mono);color:var(--red);letter-spacing:.1em;margin-bottom:6px}
+.ads{display:grid;gap:12px;grid-auto-flow:column;grid-auto-columns:minmax(220px,72%);overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 18px;margin:0 calc(var(--gut)*-1);scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.ads::-webkit-scrollbar{display:none}
+@media(min-width:640px){.ads{grid-auto-columns:minmax(220px,40%)}}
+@media(min-width:1100px){.ads{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible;padding:4px 0 0;margin:0}}
+.ad{scroll-snap-align:center;position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0b0707;box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.ad .media{position:absolute;inset:0}
+.ad::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,8,.55) 0%,transparent 26%,transparent 46%,rgba(10,7,8,.92) 82%);z-index:1;pointer-events:none}
+.ad .ah{position:absolute;z-index:2;left:12px;right:12px;top:12px;display:flex;align-items:center;gap:8px;font:600 12px/1.2 var(--sans)}
+.ad .ah .av{width:26px;height:26px;border-radius:50%;background:var(--red);display:grid;place-items:center;font:800 9px var(--sans);flex:none}
+.ad .ah small{display:block;font-weight:400;opacity:.75;font-size:10.5px}
+.ad .ab{position:absolute;z-index:2;left:14px;right:14px;bottom:14px;display:grid;gap:12px}
+.ad .ab h3{font:600 clamp(19px,5vw,23px)/1.14 var(--sans);letter-spacing:-.02em;overflow-wrap:break-word}
+@media(min-width:1100px){.ad .ab h3{font-size:clamp(16px,1.35vw,19px)}}
+.ad .ab .pill{padding:11px 13px;font-size:13px;border-radius:11px}
+.ad .bar{position:absolute;z-index:2;left:12px;right:12px;top:6px;height:2px;background:rgba(255,255,255,.3);border-radius:2px;overflow:hidden}
+.ad .bar i{position:absolute;inset:0;background:#fff;transform-origin:0 0;animation:adbar 6s linear infinite}
+@keyframes adbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ads-hint{display:flex;align-items:center;gap:8px;margin-top:2px}
+@media(min-width:1100px){.ads-hint{display:none}}
+/* funil */
+.fnl{display:grid;gap:8px;justify-items:center;counter-reset:f}
+.fnl li{list-style:none;counter-increment:f;width:var(--w);min-width:min(100%,290px);display:flex;align-items:center;gap:14px;padding:clamp(14px,1.8vw,20px) clamp(16px,2.4vw,28px);border-radius:14px;background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid var(--line);font:500 clamp(16px,1.7vw,21px)/1.25 var(--sans);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.js .fnl:not(.in) li{width:min(100%,290px)}
+.fnl li::before{content:"0" counter(f);font:700 12px var(--mono);color:var(--red);letter-spacing:.1em;flex:none}
+.fnl li span::first-letter{text-transform:uppercase}
+.fnl li:nth-last-child(2){border-color:rgba(229,9,20,.5);background:rgba(229,9,20,.14)}
+.fnl li:last-child{background:var(--red);border-color:var(--red);font-weight:700}.fnl li:last-child::before{color:#fff}
+.rmk{margin-top:clamp(40px,6vw,72px);display:grid;gap:18px}
+.rmk>p{color:var(--mut);max-width:70ch;font-size:clamp(16px,1.4vw,18px)}
+.rflow{display:grid;gap:12px;align-items:stretch}
+@media(min-width:900px){.rflow{grid-template-columns:1fr auto 1fr}}
+.rcol{padding:clamp(20px,2.4vw,28px);border-radius:18px;background:var(--ink2);border:1px solid var(--line);display:grid;gap:14px;align-content:start}
+.rcol.o{border-color:rgba(229,9,20,.45)}
+.rcol ul{list-style:none;display:grid;gap:10px}
+.rcol li{display:flex;gap:12px;font-size:16.5px;line-height:1.4}
+.rcol li::before{content:"";flex:none;width:8px;height:8px;border-radius:2px;background:var(--red);margin-top:8px}
+.rarr{display:grid;place-items:center;color:var(--red);font:400 34px/1 var(--sans)}
+@media(max-width:899px){.rarr{transform:rotate(90deg);font-size:28px}}
+/* ativação */
+.act{display:grid;gap:14px}
+@media(min-width:1000px){.act{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.act article{padding:clamp(22px,2.6vw,30px);border-radius:20px;background:linear-gradient(160deg,#170f10,#0d0a0a);border:1px solid var(--line);display:grid;gap:14px;align-content:start}
+.act h3{font:600 clamp(19px,1.8vw,22px)/1.2 var(--sans);letter-spacing:-.015em}
+.act p{color:var(--mut);font-size:16px;line-height:1.6}
+.act .dim{opacity:.55}
+.chk{list-style:none;display:grid;gap:12px}
+.chk li{display:flex;gap:12px;font-size:16px;line-height:1.45}
+.chk li::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--red);margin-top:1px;background:rgba(229,9,20,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/13px no-repeat}
+.chk li span::first-letter{text-transform:uppercase}
+/* logo Studio In Prime */
+.ipl{display:block;width:auto;height:34px;flex:none}
+.top img.ipl{height:34px}
+@media(max-width:860px){.top img.ipl{height:30px}}
+#menu .ipl{height:32px}
+.hero .client .ipl{height:clamp(64px,9vw,118px)}
+.cta .lockup img.ipl{height:clamp(52px,6vw,72px)}
+footer .brand img.ipl{height:30px}
+.x{color:var(--red)!important}
+#mclose{color:var(--red);border-color:rgba(229,9,20,.5)}
 .top .brand{padding:10px 0}
 /* b-roll */
 .media{position:relative;overflow:hidden;background:#140d0e}
@@ -281,7 +396,7 @@ video::-webkit-media-controls-start-playback-button{display:none!important;-webk
 .mside .leg{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:14.5px}
 .mside .leg span{display:flex;gap:8px;align-items:center}
 .next{padding:16px 18px;border-radius:14px;border:1px solid rgba(229,9,20,.45);background:rgba(229,9,20,.08)}
-.next h4{font:600 17px/1.3 var(--sans);margin-top:8px}
+.next h3{font:600 17px/1.3 var(--sans);margin-top:8px}
 .next p{color:var(--mut);font-size:14.5px;margin-top:4px}
 .post,.wk{scroll-margin-top:calc(var(--top) + 130px)}
 .post.flash{border-color:var(--red);box-shadow:0 0 0 3px rgba(229,9,20,.35);transition:box-shadow .3s}
@@ -291,7 +406,7 @@ video::-webkit-media-controls-start-playback-button{display:none!important;-webk
 footer .wrap{align-items:center}
 footer .brand img{height:18px;width:auto}
 footer .brand .lk{font-size:17px}
-@media(max-width:860px){footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}}
+@media(max-width:860px){footer{padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}}
 .cta .lockup{display:flex;align-items:center;gap:14px;margin-bottom:22px}
 .cta .lockup img{height:26px;width:auto}
 .cta .lockup .lk{font-size:40px}
@@ -403,26 +518,34 @@ footer .brand .lk{font-size:17px}
 .post.hide{display:none}
 .empty{display:none;color:var(--mut);padding:20px 0}
 @media(max-width:600px){.post{grid-template-columns:1fr;gap:8px}.post .dt{flex-direction:row;align-items:baseline;gap:10px}}
+
+/* contraste AA: vermelho da marca segue nos blocos; texto pequeno usa um tom levemente mais claro */
+:root{--redt:#FF3B45}
+.kick b,.lbl,.aud li b,.wkh h3 small,.gain code,.next .kick b,.tp-card .lbl{color:var(--redt)}
+.offer .ov .lbl{color:#fff}
+footer{color:var(--mut)}
+.mc span{opacity:1;font-size:10px}
+.fnl li:last-child{color:#fff;font-size:clamp(19px,1.7vw,21px)}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top" id="top"><div class="wrap">
-  <a class="brand" href="#inicio" aria-label="V4 Company × Studio In Prime — início"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="74" height="24"><span class="x" aria-hidden="true">×</span><span class="lk"><small>Studio</small><b>IN <i>PRIME</i></b></span></a>
-  <nav id="nav" aria-label="Seções"><a href="#filme">O filme</a><a href="#tese">Posicionamento</a><a href="#editorias">Editorias</a><a href="#captacao">Captação</a><a href="#fases">Lançamento</a><a href="#calendario">Calendário</a></nav>
+  <a class="brand" href="#inicio" aria-label="V4 Company × Studio In Prime — início"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="74" height="24"><span class="x" aria-hidden="true">×</span><img class="ipl" src="assets/img/inprime-logo.svg" alt="Studio In Prime" width="1183" height="669"></a>
+  <nav id="nav" aria-label="Seções"><a href="#filme">O filme</a><a href="#tese">Posicionamento</a><a href="#editorias">Editorias</a><a href="#captacao">Captação</a><a href="#fases">Lançamento</a><a href="#trafego">Tráfego pago</a><a href="#calendario">Calendário</a></nav>
   <a class="btn p tcta" href="#calendario" style="padding:10px 16px;min-height:40px;font-size:14px">Ver calendário</a>
   <button class="mbtn" id="mbtn" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
 </div></header>
-<dialog id="menu" aria-label="Menu"><div class="mi"><div class="mh"><span class="brand"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="62" height="20"><span class="x" aria-hidden="true">×</span><span class="lk" style="font-size:19px"><small>Studio</small><b>IN <i>PRIME</i></b></span></span><button class="mbtn" id="mclose" aria-label="Fechar menu" style="display:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-<nav aria-label="Seções"><a href="#filme">O filme <span>B</span></a><a href="#tese">Posicionamento <span>01</span></a><a href="#editorias">Editorias <span>02</span></a><a href="#captacao">Captação <span>03</span></a><a href="#fases">Lançamento <span>04</span></a><a href="#calendario">Calendário de publicações <span>05</span></a></nav>
-<a class="btn p" href="#fechar">Aprovar o planejamento</a></div></dialog>
+<dialog id="menu" aria-label="Menu"><div class="mi"><div class="mh"><span class="brand"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="62" height="20"><span class="x" aria-hidden="true">×</span><img class="ipl" src="assets/img/inprime-logo.svg" alt="Studio In Prime" width="1183" height="669"></span><button class="mbtn" id="mclose" aria-label="Fechar menu" style="display:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<nav aria-label="Seções"><a href="#filme">O filme <span>B</span></a><a href="#tese">Posicionamento <span>01</span></a><a href="#editorias">Editorias <span>02</span></a><a href="#captacao">Captação <span>03</span></a><a href="#fases">Lançamento <span>04</span></a><a href="#trafego">Tráfego pago <span>05</span></a><a href="#publicos">Públicos e oferta <span>05</span></a><a href="#criativos">Criativos e mensagens <span>05</span></a><a href="#funil">Funil e remarketing <span>05</span></a><a href="#ativacao">Lançamento e mensuração <span>05</span></a><a href="#calendario">Calendário de publicações <span>06</span></a></nav>
+<a class="btn p" href="#calendario">Ver calendário</a></div></dialog>
 
 <main id="conteudo">
 <section class="hero" id="inicio">
   <video class="bgv" data-hero autoplay muted loop playsinline preload="metadata" poster="assets/img/broll/salao.jpg" aria-hidden="true"><source src="media/broll/salao.mp4" type="video/mp4"></video>
   <div class="veil" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="client fade"><span class="lk"><small>Studio</small><b>IN <i>PRIME</i></b></span><span class="for">Planejamento de conteúdo<br><b>por V4 Company</b> · Instagram</span></div>
+    <div class="client fade"><img class="ipl" src="assets/img/inprime-logo.svg" alt="Studio In Prime" width="1183" height="669"><span class="for">Planejamento de conteúdo<br><b>por V4 Company</b> · Instagram</span></div>
     <h1 class="prom"><span class="l"><span>A exclusividade que o mercado mainstream promete,</span></span><span class="l"><span><em>mas só o In Prime entrega.</em></span></span></h1>
     <div class="ctas fade">
       <a class="btn p" href="#filme" data-play><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Assistir o filme</a>
@@ -441,11 +564,11 @@ footer .brand .lk{font-size:17px}
       <p>Cenas do Studio geradas por IA como referência visual; serão substituídas pelo material da captação.</p></div>
     <div class="films">
       <div class="rv">
-        <div class="player h" data-film="16x9"><video id="vh" muted loop playsinline preload="none" poster="assets/img/poster-16x9.webp" data-prev="media/preview-16x9.mp4" data-full="media/v4-inprime-plano-sequencia-16x9.mp4" aria-label="Filme 16:9"></video><span class="pmute" aria-hidden="true"><i></i>Prévia · sem som</span><button class="pbtn" type="button" aria-label="Assistir ao filme 16:9 com som (40 segundos)"><span class="pi" aria-hidden="true"></span><span class="pl" aria-hidden="true">Assistir com som<b>40s</b></span></button></div>
+        <div class="player h" data-film="16x9"><video id="vh" muted loop playsinline preload="none" poster="assets/img/poster-16x9.webp" data-prev="media/preview-16x9.mp4" data-full="media/v4-inprime-plano-sequencia-16x9.mp4" aria-label="Filme 16:9"></video><button class="pbtn" type="button" aria-label="Ativar o som e assistir do início ao filme 16:9 (40 segundos)"><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>Ativar som<b>40s</b></span></button></div>
         <div class="ptag"><span class="kick">16:9 · 40s · com áudio</span><span style="display:flex;gap:18px"><a href="media/v4-inprime-plano-sequencia-16x9.mp4" download="V4-Studio-In-Prime-Planejamento-16x9.mp4" data-dl="16x9">Baixar MP4</a><a href="#" data-live="0">Versão interativa</a></span></div>
       </div>
       <div class="rv d2">
-        <div class="player v" data-film="9x16"><video id="vv" muted loop playsinline preload="none" poster="assets/img/poster-9x16.webp" data-prev="media/preview-9x16.mp4" data-full="media/v4-inprime-plano-sequencia-9x16.mp4" aria-label="Filme 9:16"></video><span class="pmute" aria-hidden="true"><i></i>Prévia · sem som</span><button class="pbtn" type="button" aria-label="Assistir ao filme 9:16 com som (33 segundos)"><span class="pi" aria-hidden="true"></span><span class="pl" aria-hidden="true">Assistir com som<b>33s</b></span></button></div>
+        <div class="player v" data-film="9x16"><video id="vv" muted loop playsinline preload="none" poster="assets/img/poster-9x16.webp" data-prev="media/preview-9x16.mp4" data-full="media/v4-inprime-plano-sequencia-9x16.mp4" aria-label="Filme 9:16"></video><button class="pbtn" type="button" aria-label="Ativar o som e assistir do início ao filme 9:16 (33 segundos)"><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>Ativar som<b>33s</b></span></button></div>
         <div class="ptag"><span class="kick">9:16 · 33s</span><span style="display:flex;gap:18px"><a href="media/v4-inprime-plano-sequencia-9x16.mp4" download="V4-Studio-In-Prime-Planejamento-9x16.mp4" data-dl="9x16">Baixar</a><a href="#" data-live="1">Interativa</a></span></div>
       </div>
     </div>
@@ -511,9 +634,112 @@ footer .brand .lk{font-size:17px}
   </div>
 </section>
 
+<section id="trafego">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx"><i>05</i><span class="kick">5. Estratégia de Tráfego Pago</span></div>
+      <h2>Estratégia de Tráfego Pago <span class="hl">e Funil de Aquisição</span></h2>
+      <p>A mídia paga transforma o posicionamento do Studio In Prime em demanda qualificada, conectando cada público à dor certa, ao diferencial correspondente e à aula experimental. A comunicação deve vender a experiência — atendimento personalizado, conforto, eficiência e acompanhamento profissional — sem atacar diretamente as academias concorrentes.</p></div>
+    <div class="tp-obj rv"><span class="lbl">Objetivo da mídia paga</span><p>Gerar reconhecimento local, capturar demanda ativa e transformar interesse em leads e agendamentos, com campanhas específicas para cada dor, modalidade e perfil de público.</p></div>
+    <div class="tp-ch">
+      <article class="tp-card rv">
+        <h3>Google Ads <span>— captura de demanda ativa</span></h3>
+        <div class="mock" aria-hidden="true">
+          <div class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="q" data-type="academia|personal trainer|Pilates|academias lotadas|falta de tempo|acompanhamento individual">personal trainer</span></div>
+          <div class="gres"><span class="sp">Patrocinado <i>· Studio In Prime</i></span><b>Experimente antes de decidir</b><span>Agende sua primeira experiência.</span></div>
+          <div class="gres"><span class="sp">Patrocinado <i>· Studio In Prime</i></span><b>Acompanhamento profissional de verdade</b><span>Até 4 alunos por professor. Treinar sem academia lotada.</span></div>
+        </div>
+        <p>Estruturar campanhas para buscas relacionadas a <span class="mk">academia</span>, <span class="mk">personal trainer</span>, <span class="mk">Pilates</span> e às principais dores do público, como <span class="mk">falta de tempo</span>, <span class="mk">academias lotadas</span> e <span class="mk">busca por acompanhamento individual</span>. Separar os grupos por intenção e serviço para que o anúncio e a página de destino sejam coerentes com a necessidade pesquisada.</p>
+      </article>
+      <article class="tp-card rv d1">
+        <h3>Meta Ads <span>— geração de demanda e leads</span></h3>
+        <div class="mock" aria-hidden="true">
+          <div class="feed"><div class="fh"><span class="av">IP</span><span><b>studioinprime</b><small>Patrocinado</small></span></div><div class="im" style="background-image:url(assets/img/broll/personal.jpg)"></div><div class="fc"><span>Agende sua primeira experiência</span><span>›</span></div></div>
+          <div class="stg"><div><small>01</small>reconhecimento</div><div><small>02</small>consideração</div><div><small>03</small>captação de leads</div></div>
+        </div>
+        <p>Usar campanhas de reconhecimento, consideração e captação de leads para apresentar a experiência do Studio In Prime a pessoas que ainda não estão procurando ativamente por uma academia. Trabalhar segmentações e criativos específicos para <span class="mk">longevidade 40+</span>, <span class="mk">Pilates</span>, <span class="mk">performance</span>, <span class="mk">condicionamento</span>, <span class="mk">qualidade de vida</span> e <span class="mk">rotina corrida</span>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="publicos">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx"><i>05</i><span class="kick">5. Tráfego Pago · Públicos e oferta</span></div>
+      <h2>Públicos <span class="hl">prioritários</span></h2></div>
+    <span class="kick rv" style="display:block;margin-bottom:14px">Alcançar</span>
+    <ol class="aud">
+      <li class="rv"><b>01</b><span>pessoas insatisfeitas com academias convencionais</span></li>
+      <li class="rv d1"><b>02</b><span>clientes ou ex-clientes da Bodytech na região de São Francisco</span></li>
+      <li class="rv d2 k"><b>03</b><span>pessoas 40+ interessadas em longevidade</span></li>
+      <li class="rv d3"><b>04</b><span>profissionais com pouco tempo</span></li>
+      <li class="rv d4"><b>05</b><span>públicos que valorizam um ambiente menos lotado e acompanhamento individualizado</span></li>
+    </ol>
+    <div class="offer rv">
+      <div class="ot"><span class="lbl">Oferta de entrada</span><p>Utilizar a aula experimental como principal mecanismo de conversão, com chamadas como “Experimente antes de decidir” e “Agende sua primeira experiência”. A oferta deve reduzir a barreira inicial e permitir que o potencial cliente comprove o atendimento, a organização e o conforto do Studio.</p></div>
+      <div class="ov" aria-hidden="true"><span class="lbl">Aula experimental</span><span class="pill p">Experimente antes de decidir<i>›</i></span><span class="pill">Agende sua primeira experiência<i>›</i></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="criativos">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx"><i>05</i><span class="kick">5. Tráfego Pago · Criativos</span></div>
+      <h2>Criativos <span class="hl">e mensagens</span></h2>
+      <p>Desdobrar a captação em anúncios que demonstrem a experiência real do aluno — chegada, estrutura, atendimento, treino, comodidades e saída.</p></div>
+    <ol class="jrn" aria-label="Jornada do aluno nos anúncios"><li class="rv d0" style="background-image:url(assets/img/broll/salao.jpg);background-position:center"><span>chegada</span></li><li class="rv d1" style="background-image:url(assets/img/broll/salao.jpg);background-position:80% 50%"><span>estrutura</span></li><li class="rv d2" style="background-image:url(assets/img/broll/personal.jpg);background-position:center"><span>atendimento</span></li><li class="rv d0" style="background-image:url(assets/img/broll/muaythai.jpg);background-position:center"><span>treino</span></li><li class="rv d1" style="background-image:url(assets/img/broll/massagem.jpg);background-position:center"><span>comodidades</span></li><li class="rv d2" style="background-image:url(assets/img/broll/clube.jpg);background-position:center"><span>saída</span></li></ol>
+    <div style="margin-top:clamp(40px,6vw,64px)">
+      <span class="kick rv" style="display:block;margin-bottom:16px">Priorizar as linhas</span>
+      <div class="ads" tabindex="0" role="region" aria-label="Anúncios: deslize ou use as setas para ver os 5">
+        <article class="ad"><div class="media" aria-hidden="true"><video class="broll" muted loop playsinline preload="none" poster="assets/img/broll/salao.jpg" data-src="media/broll/salao.mp4" style="object-position:50% 50%"></video></div><div class="bar" aria-hidden="true"><i></i></div><div class="ah" aria-hidden="true"><span class="av">IP</span><span>studioinprime<small>Patrocinado</small></span></div><div class="ab"><h3>“Treinar sem academia lotada”</h3><span class="pill p" aria-hidden="true">Agende sua primeira experiência<i>›</i></span></div></article>
+        <article class="ad"><div class="media" aria-hidden="true"><video class="broll" muted loop playsinline preload="none" poster="assets/img/broll/personal.jpg" data-src="media/broll/personal.mp4" style="object-position:50% 50%"></video></div><div class="bar" aria-hidden="true"><i></i></div><div class="ah" aria-hidden="true"><span class="av">IP</span><span>studioinprime<small>Patrocinado</small></span></div><div class="ab"><h3>“Acompanhamento profissional de verdade”</h3><span class="pill p" aria-hidden="true">Agende sua primeira experiência<i>›</i></span></div></article>
+        <article class="ad"><div class="media" aria-hidden="true"><video class="broll" muted loop playsinline preload="none" poster="assets/img/broll/salao.jpg" data-src="media/broll/salao.mp4" style="object-position:85% 50%"></video></div><div class="bar" aria-hidden="true"><i></i></div><div class="ah" aria-hidden="true"><span class="av">IP</span><span>studioinprime<small>Patrocinado</small></span></div><div class="ab"><h3>“Até 4 alunos por professor”</h3><span class="pill p" aria-hidden="true">Agende sua primeira experiência<i>›</i></span></div></article>
+        <article class="ad"><div class="media" aria-hidden="true"><video class="broll" muted loop playsinline preload="none" poster="assets/img/broll/clube.jpg" data-src="media/broll/clube.mp4" style="object-position:50% 50%"></video></div><div class="bar" aria-hidden="true"><i></i></div><div class="ah" aria-hidden="true"><span class="av">IP</span><span>studioinprime<small>Patrocinado</small></span></div><div class="ab"><h3>“Menos espera, mais eficiência”</h3><span class="pill p" aria-hidden="true">Agende sua primeira experiência<i>›</i></span></div></article>
+        <article class="ad"><div class="media" aria-hidden="true"><video class="broll" muted loop playsinline preload="none" poster="assets/img/broll/muaythai.jpg" data-src="media/broll/muaythai.mp4" style="object-position:50% 50%"></video></div><div class="bar" aria-hidden="true"><i></i></div><div class="ah" aria-hidden="true"><span class="av">IP</span><span>studioinprime<small>Patrocinado</small></span></div><div class="ab"><h3>“Treino eficiente para quem tem pouco tempo”</h3><span class="pill p" aria-hidden="true">Agende sua primeira experiência<i>›</i></span></div></article>
+      </div>
+      <span class="kick ads-hint" aria-hidden="true">Deslize para ver os 5 anúncios →</span>
+    </div>
+  </div>
+</section>
+
+<section id="funil">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx"><i>05</i><span class="kick">5. Tráfego Pago · Funil de aquisição</span></div>
+      <h2>Funil <span class="hl">de aquisição</span></h2>
+      <p>O conteúdo orgânico e os anúncios devem cumprir papéis complementares em cada etapa, conduzindo o público da percepção do problema até o agendamento.</p></div>
+    <ol class="fnl rv" aria-label="Etapas do funil">
+      <li style="--w:100%"><span>Descoberta</span></li>
+      <li style="--w:91%"><span>identificação com a dor</span></li>
+      <li style="--w:82%"><span>apresentação dos diferenciais</span></li>
+      <li style="--w:73%"><span>prova da experiência</span></li>
+      <li style="--w:64%"><span>aula experimental</span></li>
+      <li style="--w:55%"><span>conversão</span></li>
+    </ol>
+    <div class="rmk">
+      <div class="sh rv" style="margin-bottom:0"><span class="lbl">Remarketing</span><p>Criar públicos de pessoas que assistiram aos vídeos, interagiram com os perfis, visitaram o site ou iniciaram o contato, mas ainda não agendaram. Nessa etapa, usar depoimentos, provas visuais da experiência, diferenciais operacionais e chamadas diretas para a aula experimental.</p></div>
+      <div class="rflow">
+        <div class="rcol rv"><span class="kick">Criar públicos de pessoas que</span><ul><li>assistiram aos vídeos</li><li>interagiram com os perfis</li><li>visitaram o site</li><li>iniciaram o contato, mas ainda não agendaram</li></ul></div>
+        <div class="rarr" aria-hidden="true">→</div>
+        <div class="rcol o rv d1"><span class="kick">Nessa etapa, usar</span><ul><li>depoimentos</li><li>provas visuais da experiência</li><li>diferenciais operacionais</li><li>chamadas diretas para a aula experimental</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ativacao">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx"><i>05</i><span class="kick">5. Tráfego Pago · Lançamento e mensuração</span></div>
+      <h2>Lançamento, mensuração <span class="hl">e prioridades</span></h2></div>
+    <div class="act">
+      <article class="rv"><span class="lbl">01</span><h3>Estratégia de lançamento</h3><p>Auditar primeiro as <span class="mk">contas existentes</span>, os <span class="mk">acessos</span>, o <span class="mk">histórico</span>, o <span class="mk">site</span> e os <span class="mk">pontos de conversão</span>. Caso as contas estejam sem histórico, combinar campanhas de reconhecimento com geração de leads desde o início, distribuindo a verba por objetivo e aprendendo com os primeiros dados de conversão.</p></article>
+      <article class="rv d1"><span class="lbl">02</span><h3>Mensuração e otimização</h3><p>Configurar o acompanhamento de leads e agendamentos e otimizar as campanhas com base em <span class="mk">conversões reais</span> <span class="dim">— e não apenas em alcance ou cliques</span>. A análise deve considerar a <span class="mk">qualidade dos leads</span>, o <span class="mk">volume de aulas experimentais marcadas</span> e a <span class="mk">evolução do lead até a conversão</span>.</p></article>
+      <article class="rv d2"><span class="lbl">03</span><h3>Prioridades antes da ativação</h3><ul class="chk"><li><span>Validar planos, modalidades e frequência das aulas;</span></li><li><span>definir públicos, criativos, ofertas e distribuição de verba;</span></li><li><span>revisar o site e os formulários;</span></li><li><span>e garantir que cada anúncio tenha uma chamada clara para o próximo passo.</span></li></ul></article>
+    </div>
+  </div>
+</section>
+
 <section id="calendario">
   <div class="wrap">
-    <div class="sh rv"><div class="idx"><i>05</i><span class="kick"><b>13/10 → 12/11</b></span></div>
+    <div class="sh rv"><div class="idx"><i>06</i><span class="kick"><b>13/10 → 12/11</b></span></div>
       <h2>Calendário <span class="hl">de publicações</span></h2>
       <p>Filtre por semana ou por editoria.</p></div>
     <div class="stats">
@@ -534,16 +760,14 @@ footer .brand .lk{font-size:17px}
 <section class="cta rv" id="fechar">
   <div class="bg" aria-hidden="true"><video class="broll" muted loop playsinline preload="none" poster="assets/img/broll/salao.jpg" data-src="media/broll/salao.mp4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video></div>
   <div class="wrap" style="width:100%"><div class="box">
-    <div class="lockup"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="74" height="24"><span class="x" aria-hidden="true" style="color:var(--mut2)">×</span><span class="lk"><small>Studio</small><b>IN <i>PRIME</i></b></span></div>
+    <div class="lockup"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="74" height="24"><span class="x" aria-hidden="true">×</span><img class="ipl" src="assets/img/inprime-logo.svg" alt="Studio In Prime" width="1183" height="669"></div>
     <span class="cd" data-cd><i></i><span>Início em 13/10</span></span>
     <h2>Seu treino começa e termina na hora certa. <span class="hl">O horário de pico não existe aqui.</span></h2>
-    <a class="btn p" data-cta="final" href="#calendario">Aprovar o planejamento</a>
     <p class="tagline"><img src="assets/img/v4-symbol.webp" alt="" width="40" height="40"><span>Nosso negócio é<br><i>vender</i> o seu</span></p>
   </div></div>
 </section>
 </main>
-<div class="sbar" id="sbar" aria-hidden="true"><div><span class="kick">Planejamento · 31 posts</span><b data-cdt>Início em 13/10</b></div><a class="btn p" data-cta="sticky" href="#fechar" style="min-height:44px;padding:11px 18px" tabindex="-1">Aprovar</a></div>
-<footer><div class="wrap"><span class="brand"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="56" height="18"><span class="x" aria-hidden="true">×</span><span class="lk"><small>Studio</small><b>IN <i>PRIME</i></b></span></span><span>Planejamento de Conteúdo · Instagram · out–nov 2026</span><span>Cenas do Studio no filme: referências geradas por IA</span></div></footer>
+<footer><div class="wrap"><span class="brand"><img src="assets/img/v4-logo.webp" alt="V4 Company" width="56" height="18"><span class="x" aria-hidden="true">×</span><img class="ipl" src="assets/img/inprime-logo.svg" alt="Studio In Prime" width="1183" height="669"></span><span>Planejamento de Conteúdo · Instagram · out–nov 2026</span><span>Cenas do Studio no filme: referências geradas por IA</span></div></footer>
 
 <dialog id="dlg"><div class="in"><button id="dlgX">FECHAR ✕</button><iframe id="live" title="Versão ao vivo do filme" allow="autoplay"></iframe></div></dialog>
 
@@ -637,12 +861,6 @@ addEventListener('scroll', () => { const d = (scrollY + innerHeight) / document.
 let eng = 0, last = performance.now();
 setInterval(() => { const n = performance.now(); if (document.visibilityState === 'visible') eng += (n - last) / 1000; last = n; [30, 60, 120, 300].forEach(s => { if (eng >= s) track('engaged_time', { seconds: s }, true); }); }, 1000);
 
-/* ---------------- sticky CTA (mobile) ---------------- */
-const sbar = $('#sbar'), heroS = $('#inicio'), cta = $('#fechar');
-function sb() { const pastHero = heroS.getBoundingClientRect().bottom < 0; const r2 = cta.getBoundingClientRect();
-  const on = pastHero && !(r2.top < innerHeight && r2.bottom > 0); sbar.classList.toggle('show', on); sbar.setAttribute('aria-hidden', String(!on)); sbar.querySelector('a').tabIndex = on ? 0 : -1; }
-addEventListener('scroll', sb, { passive: true }); sb();
-
 /* ---------------- timeline / nav / spotlight ---------------- */
 const tl = $('#tl'), rail = tl.querySelector('.rail'), sts = [...tl.querySelectorAll('.st')];
 function tlp() { const r = tl.getBoundingClientRect(), vh = innerHeight; const p = Math.min(1, Math.max(0, (vh * .6 - r.top) / r.height)); rail.style.setProperty('--tp', p.toFixed(4)); sts.forEach(s => s.classList.toggle('on', s.getBoundingClientRect().top < vh * .6)); }
@@ -680,7 +898,8 @@ $$('[data-dl]').forEach(a => a.addEventListener('click', () => track('video_down
 /* filmes: prévia leve, muda e em loop enquanto visível → clique troca para o MP4 completo com som.
    Safari/iOS: autoplay só com muted+playsinline; play() é chamado dentro do gesto do clique (mantém a ativação do usuário). */
 const SAVE = !!(navigator.connection && navigator.connection.saveData);
-const AUTO = !RM && !SAVE;
+const AUTO = true; // apresentação: vídeos sempre em loop, sem depender de clique
+const HQ = !SAVE && matchMedia('(min-width: 960px)').matches; // no desktop o 16:9 roda direto em alta
 const play = (v, fail) => { try { const p = v.play(); if (p && p.catch) p.catch(() => fail && fail()); } catch (e) { fail && fail(); } };
 const FILMS = $$('.player[data-film]').map((p, i) => {
   const v = p.querySelector('video'), btn = p.querySelector('.pbtn'), fmtv = p.dataset.film;
@@ -690,7 +909,7 @@ const FILMS = $$('.player[data-film]').map((p, i) => {
   f.preview = () => {
     if (f.dead) return; f.full = false; p.classList.remove('full'); v.controls = false; v.loop = true; v.muted = true; v.defaultMuted = true;
     if (f.pvBad) { if (v.getAttribute('src')) { v.removeAttribute('src'); v.load(); } return; }
-    if (f.vis) { setSrc(v.dataset.prev); play(v, () => p.classList.add('nopv')); } else if (!v.paused) v.pause(); // autoplay bloqueado (ex.: iOS em Modo Pouca Energia): fica poster + botão
+    if (f.vis) { setSrc(HQ && fmtv === '16x9' ? v.dataset.full : v.dataset.prev); play(v, () => p.classList.add('nopv')); } else if (!v.paused) v.pause(); // autoplay bloqueado (ex.: iOS em Modo Pouca Energia): fica poster + botão
   };
   f.start = () => { // precisa rodar de forma síncrona dentro do clique
     if (f.dead) return;
@@ -718,6 +937,22 @@ document.addEventListener('visibilitychange', () => FILMS.forEach(f => { if (!f.
 // ao abrir o "ao vivo", filmes com som voltam à prévia
 $$('[data-live]').forEach(a => a.addEventListener('click', () => FILMS.forEach(f => f.full && f.preview())));
 
+
+/* ---------------- rede de segurança do reveal: nada fica invisível se o IntersectionObserver perder um frame ---------------- */
+let rvLeft = $$('.rv'), rvQ = false;
+const rvSweep = () => { rvQ = false; rvLeft = rvLeft.filter(el => { if (el.classList.contains('in')) return false; if (el.getBoundingClientRect().top < innerHeight * .96) { el.classList.add('in'); el.querySelectorAll('[data-c]').forEach(count); io.unobserve(el); return false; } return true; }); };
+addEventListener('scroll', () => { if (!rvQ && rvLeft.length) { rvQ = true; requestAnimationFrame(rvSweep); } }, { passive: true });
+/* ---------------- tráfego pago: busca digitando + funil ---------------- */
+$$('.srch .q[data-type]').forEach(q => {
+  const W = q.dataset.type.split('|'); if (RM) { q.textContent = W[1]; return; }
+  let w = 0, c = 0, del = false;
+  const tick = () => { const t = W[w];
+    if (!del) { c++; q.textContent = t.slice(0, c); if (c >= t.length) { del = true; return setTimeout(tick, 1400); } }
+    else { c--; q.textContent = t.slice(0, c); if (c <= 0) { del = false; w = (w + 1) % W.length; } }
+    setTimeout(tick, del ? 35 : 75); };
+  const tio = new IntersectionObserver(es => { if (es[0].isIntersecting) { tio.disconnect(); q.textContent = ''; tick(); } }); tio.observe(q);
+});
+
 /* ---------------- contagem regressiva (fuso de São Paulo) ---------------- */
 const D0 = Date.UTC(2026, 9, 13, 3), D1 = Date.UTC(2026, 10, 13, 3), DAY = 864e5; // 13/10 e 13/11, 00:00 BRT
 const nowBR = Date.now();
@@ -735,7 +970,6 @@ menu.addEventListener('close', () => mbtn.setAttribute('aria-expanded', 'false')
 
 /* ---------------- b-rolls: carrega e toca só quando visível ---------------- */
 const hero = $('[data-hero]');
-if (hero && (RM || SAVE)) { hero.removeAttribute('autoplay'); hero.pause(); hero.preload = 'none'; }
 const brolls = $$('video.broll');
 brolls.forEach(v => { v.muted = true; v.defaultMuted = true; v.addEventListener('error', () => v.removeAttribute('src')); });
 if (AUTO) {
@@ -768,7 +1002,7 @@ const td = new Date(nowBR - 3 * 36e5); const todayId = 'p-' + String(td.getUTCDa
 const tdBtn = $(`.mc[data-post="${todayId}"]`); if (tdBtn) { tdBtn.classList.add('today'); tdBtn.setAttribute('aria-current', 'date'); }
 const posts2 = $$('.post'); const nextPost = nowBR < D0 ? posts2[0] : (posts2.find(p => p.id === todayId) || null);
 const nx = $('[data-next]');
-if (nextPost) { nx.innerHTML = `<span class="kick">${nowBR < D0 ? 'Primeiro post' : 'Post de hoje'} · <b>${nextPost.querySelector('.dt b').textContent}</b></span><h4>${nextPost.querySelector('h4').textContent}</h4><p>${nextPost.querySelector('.fm').textContent} · ${nextPost.querySelector('.tg em').textContent}</p>`; nx.style.cursor = 'pointer'; nx.tabIndex = 0; nx.setAttribute('role', 'button');
+if (nextPost) { nx.innerHTML = `<span class="kick">${nowBR < D0 ? 'Primeiro post' : 'Post de hoje'} · <b>${nextPost.querySelector('.dt b').textContent}</b></span><h3>${nextPost.querySelector('h4').textContent}</h3><p>${nextPost.querySelector('.fm').textContent} · ${nextPost.querySelector('.tg em').textContent}</p>`; nx.style.cursor = 'pointer'; nx.tabIndex = 0; nx.setAttribute('role', 'button');
   const go = () => showPost(nextPost.id); nx.addEventListener('click', go); nx.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); }
 else nx.hidden = true;
 })();

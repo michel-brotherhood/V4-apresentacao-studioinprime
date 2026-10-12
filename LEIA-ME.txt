@@ -1,3 +1,20 @@
+ATUALIZAÇÃO v8 (12/10) — revisão/auditoria
+   - Acessibilidade (axe-core): 0 violações no desktop e no celular (contraste AA, hierarquia de títulos, carrossel navegável por teclado).
+   - Menu completo só acima de 1280px (entre 1181 e 1280 os itens não cabiam).
+   - Imagem de compartilhamento com endereço absoluto (https://v4-apt-studioin.vercel.app/og.jpg). Se mudar o domínio, troque nas 3 metatags og:url, og:image e twitter:image.
+
+ATUALIZAÇÃO v7 (12/10)
+   - Logo oficial do Studio In Prime (assets/img/inprime-logo.svg, vetorizada) no topo, menu, abertura, fechamento e rodapé.
+   - Favicon com o símbolo da V4 (assets/img/favicon-v4.png e apple-touch-icon-v4.png).
+   - "×" e botão de fechar do menu em vermelho.
+
+ATUALIZAÇÃO v6 (12/10)
+   - Nova seção 5 · Estratégia de Tráfego Pago e Funil de Aquisição (5 blocos: canais, públicos e oferta,
+     criativos, funil e remarketing, lançamento e mensuração), texto literal do documento.
+   - Modo apresentação: sem botões de aprovação. Todos os vídeos rodam sozinhos, mudos e em loop;
+     no desktop o filme 16:9 já roda em alta. "Ativar som" reinicia o filme com áudio.
+   - O arquivo index-standalone.html foi removido (estava desatualizado).
+
 V4 × STUDIO IN PRIME — PLANEJAMENTO DE CONTEÚDO (PÁGINA + FILME)
 ================================================================
 
@@ -41,7 +58,6 @@ V4 × STUDIO IN PRIME — PLANEJAMENTO DE CONTEÚDO (PÁGINA + FILME)
                           com som só carrega quando a pessoa clica em "Assistir com som".
    assets/                fontes, logos V4 (versão branca, conforme brandbook para fundo escuro), posters
    og.jpg                 imagem de compartilhamento 1200×630
-   index-standalone.html  versão em arquivo único (só para enviar por e-mail; não precisa subir)
 
    Cenas do Studio geradas por IA (Higgsfield · Kling 3): são referências visuais de direção,
    não imagens reais do Studio In Prime — substitua pelos takes da captação quando existirem
